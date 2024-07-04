@@ -26,7 +26,9 @@ library
   exposed-modules:
       Chapter1
       Chapter2
+      Chapters
       Component
+      HtmlGenerator
       Page
   other-modules:
       Paths_intro_haskell

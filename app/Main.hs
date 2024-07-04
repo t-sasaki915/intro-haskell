@@ -1,12 +1,8 @@
 module Main (main) where
 
-import Chapter1 (chapter1)
-import Chapter2 (chapter2)
-import Page (constructHtml)
+import HtmlGenerator (generateHtmls)
 
-import Data.ByteString (writeFile, toStrict)
-import Lucid (renderBS)
-import Prelude hiding (writeFile)
+import Control.Monad (void)
 
 main :: IO ()
-main = writeFile "index.html" (toStrict $ renderBS (constructHtml [chapter1, chapter2]))
+main = void generateHtmls
