@@ -83,7 +83,7 @@ baseHtml title content = do
             title_ [] (toHtml $ title ++ " - TSasakiのHaskell入門")
             meta_ [charset_ "UTF-8"]
             meta_ [name_ "viewport", content_ "width=device-width,initial-scale=1"]
-            meta_ [name_ "description", content_ "An introduction to Haskell for programming beginners"]
+            meta_ [name_ "description", content_ "A Japanese introduction to Haskell for programming beginners"]
             link_ [rel_ "stylesheet", href_ "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"]
             link_ [rel_ "stylesheet", href_ "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"]
             style_ [] indexCss
