@@ -5,9 +5,6 @@ module Component where
 import Data.Text (pack, empty)
 import Lucid
 
-txt :: String -> Html ()
-txt = toHtml
-
 hlink :: String -> String -> Html ()
 hlink link = a_ [href_ (pack link)] . toHtml
 
