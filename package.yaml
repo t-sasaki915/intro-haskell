@@ -21,6 +21,8 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - lucid >= 2.11 && < 2.12
+- text >= 2.0 && < 2.1
+- bytestring >= 0.11.5 && < 0.11.6
 
 ghc-options:
 - -Wall
