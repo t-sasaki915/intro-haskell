@@ -96,7 +96,14 @@ baseHtml title content = do
             a_ [href_ "./"] (h1_ [] "TSasakiのHaskell入門")
             content
             br_ []
-            p_ [] "Copyright 2024 TSasaki."
+            p_ [] $ do
+                "Powered by "
+                a_ [href_ "https://highlightjs.org/"] "highlight.js"
+                " and "
+                a_ [href_ "https://katex.org/"] "KaTeX"
+                "."
+                br_ []
+                "Copyright 2024 TSasaki."
 
 indexHtml :: Html ()
 indexHtml = baseHtml "目次" $ do
