@@ -12,6 +12,7 @@ import Data.ByteString (writeFile, toStrict)
 import Data.Text (empty, pack)
 import Lucid
 import Prelude hiding (writeFile)
+import System.FilePath ((</>), takeFileName)
 
 chaptersToGenerate :: [Chapter]
 chaptersToGenerate =
@@ -92,7 +93,7 @@ baseHtml title content = do
             script_ [defer_ "defer", src_ "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"] empty
             script_ [] indexJs
         body_ $ do
-            a_ [href_ "./index.html"] (h1_ [] "TSasakiのHaskell入門")
+            a_ [href_ "./"] (h1_ [] "TSasakiのHaskell入門")
             content
             br_ []
             p_ [] "Copyright 2024 TSasaki."
@@ -109,14 +110,15 @@ indexHtml = baseHtml "目次" $ do
 
 writeHtml :: String -> Html () -> IO ()
 writeHtml fileName content =
-    putStrLn ("Generating " ++ fileName ++ "...") >>
+    putStrLn ("Generating " ++ takeFileName fileName ++ "...") >>
         writeFile fileName (toStrict $ renderBS content)
 
 writeChapterHtml :: ConstructedChapter -> IO ()
 writeChapterHtml (ConstructedChapter chaptNum title content) =
-    writeHtml ("./out/chapter_" ++ show chaptNum ++ ".html") (baseHtml title content)
+    writeHtml ("." </> "out" </> "chapter_" ++ show chaptNum ++ ".html")
+        (baseHtml title content)
 
 generateHtmls :: IO ()
 generateHtmls =
-    writeHtml "./out/index.html" indexHtml >>
+    writeHtml ("." </> "out" </> "index.html") indexHtml >>
         mapM_ writeChapterHtml (constructChapters chaptersToGenerate)
