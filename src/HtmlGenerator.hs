@@ -26,6 +26,15 @@ indexJs = toHtmlRaw $ concat
     , "    hljs.highlightAll();"
     , "    renderMathInElement(document.body);"
     , "}"
+    , ""
+    , "function loadLazyImage(elem, url)"
+    , "{"
+    , "    const imgElem = document.createElement(\"img\");"
+    , "    imgElem.src = url;"
+    , "    elem.appendChild(imgElem);"
+    , ""
+    , "    elem.removeAttribute(\"onclick\");"
+    , "}"
     ]
 
 indexCss :: Html ()
@@ -41,7 +50,7 @@ indexCss = toHtmlRaw $ concat
     , "    border-bottom: 1px solid #838B8B;"
     , "}"
     , ""
-    , ".snippet"
+    , ".qot"
     , "{"
     , "    display: inline-block;"
     , "    padding: 0.1em 0.2em;"
