@@ -36,7 +36,7 @@ indexCss = toHtmlRaw $ concat
     , "    line-height: 1.5;"
     , "}"
     , ""
-    , "h1, h2, h3, h4"
+    , "h2, h3, h4"
     , "{"
     , "    border-bottom: 1px solid #838B8B;"
     , "}"
