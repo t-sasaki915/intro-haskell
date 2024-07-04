@@ -4,6 +4,7 @@ module HtmlGenerator (generateHtmls) where
 
 import Chapter1 (chapter1)
 import Chapter2 (chapter2)
+import Chapter3 (chapter3)
 import Chapters (ConstructedChapter(..), Chapter(..), constructChapters)
 
 import Data.ByteString (writeFile, toStrict)
@@ -15,6 +16,7 @@ chaptersToGenerate :: [Chapter]
 chaptersToGenerate =
     [ chapter1
     , chapter2
+    , chapter3
     ]
 
 indexJs :: Html ()

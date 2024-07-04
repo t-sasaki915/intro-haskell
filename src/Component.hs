@@ -2,7 +2,7 @@
 
 module Component where
 
-import Data.Text (pack)
+import Data.Text (pack, empty)
 import Lucid
 
 txt :: String -> Html ()
@@ -44,11 +44,13 @@ qot = code_ [class_ (pack "qot")] . toHtml
 tableContainer :: Html () -> Html ()
 tableContainer = table_ []
 
-tableHeader :: Html () -> Html ()
-tableHeader heads = tr_ [] (th_ [] heads)
+tableHeader :: [Html ()] -> Html ()
+tableHeader heads = tr_ []
+    (foldl (>>) (toHtml empty) (map (th_ []) heads))
 
-tableRow :: Html () -> Html ()
-tableRow dat = tr_ [] (td_ [] dat)
+tableRow :: [Html ()] -> Html ()
+tableRow dat = tr_ []
+    (foldl (>>) (toHtml empty) (map (td_ []) dat))
 
 problem :: Html () -> Html () -> Html ()
 problem prob ans = li_ [] $ do

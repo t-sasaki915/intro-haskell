@@ -26,6 +26,7 @@ library
   exposed-modules:
       Chapter1
       Chapter2
+      Chapter3
       Chapters
       Component
       HtmlGenerator
@@ -38,6 +39,7 @@ library
       base >=4.7 && <5
     , bytestring ==0.11.5.*
     , directory ==1.3.8.*
+    , filepath ==1.4.300.1.*
     , lucid ==2.11.*
     , text ==2.0.*
   default-language: Haskell2010
@@ -53,6 +55,7 @@ executable intro-haskell-exe
       base >=4.7 && <5
     , bytestring ==0.11.5.*
     , directory ==1.3.8.*
+    , filepath ==1.4.300.1.*
     , intro-haskell
     , lucid ==2.11.*
     , text ==2.0.*
@@ -70,6 +73,7 @@ test-suite intro-haskell-test
       base >=4.7 && <5
     , bytestring ==0.11.5.*
     , directory ==1.3.8.*
+    , filepath ==1.4.300.1.*
     , intro-haskell
     , lucid ==2.11.*
     , text ==2.0.*
