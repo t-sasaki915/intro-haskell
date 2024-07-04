@@ -1,2 +1,2 @@
 # intro-haskell
-An introduction to Haskell for programming beginners
+A Japanese introduction to Haskell for programming beginners
