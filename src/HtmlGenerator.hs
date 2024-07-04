@@ -64,8 +64,8 @@ indexCss = toHtmlRaw $ concat
 baseHtml :: String -> Html () -> Html ()
 baseHtml title content = do
     doctype_
-    html_ $ do
-        head_ [lang_ "ja"] $ do
+    html_ [lang_ "ja"] $ do
+        head_ $ do
             title_ [] (toHtml $ title ++ " - TSasakiのHaskell入門")
             meta_ [charset_ "UTF-8"]
             meta_ [name_ "viewport", content_ "width=device-width,initial-scale=1"]
