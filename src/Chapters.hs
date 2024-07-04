@@ -1,31 +1,56 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Chapters (constructChapters) where
-
-import Chapter1 (chapter1)
-import Chapter2 (chapter2)
-import Page
+module Chapters
+    ( ConstructedChapter(..)
+    , Chapter(..)
+    , beginChapter
+    , beginChapterDescription
+    , beginSection
+    , beginContent
+    , beginSubsection
+    , constructChapters
+    ) where
 
 import Data.Text (empty)
 import Lucid
 
-chapters :: [Chapter]
-chapters =
-    [ chapter1
-    , chapter2
-    ]
+data ConstructedChapter = ConstructedChapter Int String (Html ())
 
-constructChapters :: [(Int, (String, Html()))]
-constructChapters = foldl
-    (\lst (chaptNum, chapt) ->
-        lst ++ [(chaptNum, (title chapt, constructChapter chaptNum chapt))])
-            [] (zip [1..] chapters)
-    where title (Chapter t _) = t
+data Chapter = Chapter String [ChapterContent]
 
-constructChapter :: Int -> Chapter -> Html ()
+data ChapterContent = CContent (Html ())
+                    | Sect Section
+
+data Section = Section String [SectionContent]
+
+data SectionContent = SContent (Html ())
+                    | Subsect Subsection
+
+data Subsection = Subsection String (Html ())
+
+beginChapter :: String -> [ChapterContent] -> Chapter
+beginChapter = Chapter
+
+beginChapterDescription :: Html () -> ChapterContent
+beginChapterDescription = CContent
+
+beginSection :: String -> [SectionContent] -> ChapterContent
+beginSection a = Sect . Section a
+
+beginContent :: Html () -> SectionContent
+beginContent = SContent
+
+beginSubsection :: String -> Html () -> SectionContent
+beginSubsection a = Subsect . Subsection a
+
+constructChapters :: [Chapter] -> [ConstructedChapter]
+constructChapters = zipWith constructChapter [1..]
+
+constructChapter :: Int -> Chapter -> ConstructedChapter
 constructChapter chaptNum (Chapter title contents') =
-    h2_ [] (toHtml $ show chaptNum ++ " " ++ title) >> contents
+    ConstructedChapter chaptNum title $
+        h2_ [] (toHtml $ show chaptNum ++ " " ++ title) >> contents
     where
         contents = fst $ foldl
             (\(f, sectNum) -> \case

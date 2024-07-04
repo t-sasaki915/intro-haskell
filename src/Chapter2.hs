@@ -1,7 +1,7 @@
 module Chapter2 (chapter2) where
 
+import Chapters
 import Component
-import Page
 
 chapter2 :: Chapter
 chapter2 =

@@ -29,7 +29,6 @@ library
       Chapters
       Component
       HtmlGenerator
-      Page
   other-modules:
       Paths_intro_haskell
   hs-source-dirs:

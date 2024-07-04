@@ -2,12 +2,20 @@
 
 module HtmlGenerator (generateHtmls) where
 
-import Chapters (constructChapters)
+import Chapter1 (chapter1)
+import Chapter2 (chapter2)
+import Chapters (ConstructedChapter(..), Chapter(..), constructChapters)
 
 import Data.ByteString (writeFile, toStrict)
 import Data.Text (empty, pack)
 import Lucid
 import Prelude hiding (writeFile)
+
+chaptersToGenerate :: [Chapter]
+chaptersToGenerate =
+    [ chapter1
+    , chapter2
+    ]
 
 indexJs :: Html ()
 indexJs = toHtmlRaw $ concat
@@ -74,24 +82,26 @@ baseHtml title content = do
             a_ [href_ "index.html"] (h1_ [] "TSasakiのHaskell入門")
             content
 
-indexHtml :: (String, Html ())
-indexHtml = ("index.html", baseHtml "目次" $ do
+indexHtml :: Html ()
+indexHtml = baseHtml "目次" $ do
     h2_ [] "目次:"
     ul_ [] $
-        foldl (\f (chaptNum, (title, _)) ->
+        foldl (\f (ConstructedChapter chaptNum title _) ->
             f >> li_ [] (a_ [href_ (pack $ "chapter_" ++ show chaptNum ++ ".html")]
                 (toHtml (show chaptNum ++ "章 " ++ title))))
-                    (toHtml empty) constructChapters)
+                    (toHtml empty)
+                        (constructChapters chaptersToGenerate)
 
-chaptersHtml :: [(String, Html ())]
-chaptersHtml = map (\a -> (htmlName a, chaptHtml a)) constructChapters
-    where
-        htmlName (chaptNum, _) = "chapter_" ++ show chaptNum ++ ".html"
-        chaptHtml = uncurry baseHtml . snd
+writeHtml :: String -> Html () -> IO ()
+writeHtml fileName content =
+    putStrLn ("Generating " ++ fileName ++ "...") >>
+        writeFile fileName (toStrict $ renderBS content)
 
-generateHtmls :: IO [()]
+writeChapterHtml :: ConstructedChapter -> IO ()
+writeChapterHtml (ConstructedChapter chaptNum title content) =
+    writeHtml ("chapter_" ++ show chaptNum ++ ".html") (baseHtml title content)
+
+generateHtmls :: IO ()
 generateHtmls =
-    mapM
-        (uncurry writeFile . mapSnd (toStrict . renderBS))
-            (indexHtml : chaptersHtml)
-    where mapSnd f (a, b) = (a, f b)
+    writeHtml "index.html" indexHtml >>
+        mapM_ writeChapterHtml (constructChapters chaptersToGenerate)
