@@ -23,6 +23,7 @@ dependencies:
 - lucid >= 2.11 && < 2.12
 - text >= 2.0 && < 2.1
 - bytestring >= 0.11.5 && < 0.11.6
+- directory >= 1.3.8 && < 1.3.9
 
 ghc-options:
 - -Wall

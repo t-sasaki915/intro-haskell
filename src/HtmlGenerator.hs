@@ -79,15 +79,15 @@ baseHtml title content = do
             script_ [defer_ "defer", src_ "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"] empty
             script_ [] indexJs
         body_ $ do
-            a_ [href_ "index.html"] (h1_ [] "TSasakiのHaskell入門")
+            a_ [href_ "./index.html"] (h1_ [] "TSasakiのHaskell入門")
             content
 
 indexHtml :: Html ()
 indexHtml = baseHtml "目次" $ do
-    h2_ [] "目次:"
+    h2_ [] "目次"
     ul_ [] $
         foldl (\f (ConstructedChapter chaptNum title _) ->
-            f >> li_ [] (a_ [href_ (pack $ "chapter_" ++ show chaptNum ++ ".html")]
+            f >> li_ [] (a_ [href_ (pack $ "./chapter_" ++ show chaptNum ++ ".html")]
                 (toHtml (show chaptNum ++ "章 " ++ title))))
                     (toHtml empty)
                         (constructChapters chaptersToGenerate)
@@ -99,9 +99,9 @@ writeHtml fileName content =
 
 writeChapterHtml :: ConstructedChapter -> IO ()
 writeChapterHtml (ConstructedChapter chaptNum title content) =
-    writeHtml ("chapter_" ++ show chaptNum ++ ".html") (baseHtml title content)
+    writeHtml ("./out/chapter_" ++ show chaptNum ++ ".html") (baseHtml title content)
 
 generateHtmls :: IO ()
 generateHtmls =
-    writeHtml "index.html" indexHtml >>
+    writeHtml "./out/index.html" indexHtml >>
         mapM_ writeChapterHtml (constructChapters chaptersToGenerate)
