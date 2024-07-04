@@ -1,2 +1,2 @@
-# intro_haskell
+# intro-haskell
 An introduction to Haskell for programming beginners
