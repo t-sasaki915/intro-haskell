@@ -43,5 +43,39 @@ chapter6 =
                 "(2倍の精度だから"; qot "Double"; "という名前なのである)。"
                 "なお、実数の精度とは、無限小数を有限なメモリの中でどこまで表現するかの程度である。"
                 "例えば、"; qot "1.111..."; "という無限小数を、"; qot "1.111"; "として扱う型より、"; qot "1.111111"; "として扱える型のほうが高精度である。"
+            
+            , beginSubsection "問題" $
+                numberList $ do
+                    problem
+                        (do
+                            "ある値は"; qot "Int"; "の型を持っている。"
+                            "どのような値であると考えられるか。"
+                        )
+                        (answer "整数")
+
+                    problem
+                        (do
+                            "ある値は"; qot "Bool"; "の型を持っている。"
+                            "その値の具体例をすべて答えよ。"
+                        )
+                        (answer $ do
+                            qot "True"; "、"; qot "False"
+                        )
+                    
+                    problem
+                        (do
+                            "値"; qot "13474813"; "の型を推測せよ。"
+                        )
+                        (answer $ do
+                            qot "Int"; " ("; qot "Integer"; "も可)"
+                        )
+                    
+                    problem
+                        (do
+                            "値"; qot "\"GOOD MORNING\""; "の型を推測せよ。"
+                        )
+                        (answer $ do
+                            qot "String"
+                        )
             ]
         ]
