@@ -84,6 +84,11 @@ chapter5 =
                                     ]
                         )
             ]
+
+        , beginSection "変数の命名"
+            [ beginContent $ do
+                "数学では、変数名は "; latex "x"; " "; latex "y"; " "; latex "S"; " など原則1文字であるが、プログラミングでは、変数は英語でシンプルかつわかりやすく命名する必要がある。"
+            ]
         
         , beginSection "変数の使用"
             [ beginContent $ do
