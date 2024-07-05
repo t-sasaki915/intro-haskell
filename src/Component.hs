@@ -11,6 +11,9 @@ hlink link = a_ [href_ (pack link)] . toHtml
 latex :: String -> Html ()
 latex equ = toHtml $ "\\(" ++ equ ++ "\\)"
 
+latexBlock :: String -> Html ()
+latexBlock equ = toHtml $ "$$" ++ equ ++ "$$"
+
 dotList :: Html () -> Html ()
 dotList = ul_ []
 
