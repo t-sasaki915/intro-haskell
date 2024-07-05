@@ -116,6 +116,12 @@ chapter5 =
                         (answer $
                             qot "displayTextColour"
                         )
+
+                    problem
+                        "プレイヤーの名前を値として持つ変数の名前を考えよ。"
+                        (answer $
+                            qot "playerName"
+                        )
             ]
         
         , beginSection "変数の使用"
