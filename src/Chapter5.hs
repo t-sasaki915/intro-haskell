@@ -88,6 +88,34 @@ chapter5 =
         , beginSection "変数の命名"
             [ beginContent $ do
                 "数学では、変数名は "; latex "x"; " "; latex "y"; " "; latex "S"; " など原則1文字であるが、プログラミングでは、変数は英語でシンプルかつわかりやすく命名する必要がある。"
+                "そして、Haskellでは、変数の命名にcamelCaseというフォーマットを用いる。"
+                "camelCaseとは、1文字目を小文字にし、それ以降の単語の頭文字を大文字にして単語を並べる方法である。"
+                "例えば、"; qot "user_data"; "をcamelCaseで書き直すと、"; qot "userData"; "である。"
+                "また、"; qot "ProcessExitCode"; "はcamelCaseで"; qot "processExitCode"; "である。"
+                "そして、変数名にスペースを含んではいけない。"
+                "加えて、変数名をシンプルかつ分かりやすくするために、単語の選び方も重要である。"
+                "変数の内容を説明するための十分最低限な単語を選ぶ必要がある。"
+                "例えば、「ユーザーの年齢を値として持つ変数」を命名するとき、そのまま英語にしてしまうと"; qot "aVariableWhoseContentIsTheAgeOfTheUser"; "であり、長すぎである。"
+                "この時、この変数の最も重要な情報は「ユーザー」の「年齢」、すなわち"; qot "user"; "と"; qot "age"; "の2単語である。"
+                "よって、この2単語から構成される変数名"; qot "userAge"; "が最適であろう。"
+            
+            , beginSubsection "問題" $
+                numberList $ do
+                    problem
+                        (do
+                            qot "PROGRAM_VERSION"; "をcamelCaseで書き直せ。"
+                        )
+                        (answer $
+                            qot "programVersion"
+                        )
+                    
+                    problem
+                        (do
+                            qot "display text colour"; "をcamelCaseで書き直せ。"
+                        )
+                        (answer $
+                            qot "displayTextColour"
+                        )
             ]
         
         , beginSection "変数の使用"
