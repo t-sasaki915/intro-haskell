@@ -59,3 +59,8 @@ answer :: Html () -> Html ()
 answer ans = details_ [] $ do
     summary_ [] (toHtml "解答を表示")
     ans
+
+hint :: Html () -> Html ()
+hint hnt = details_ [] $ do
+    summary_ [] (toHtml "ヒントを表示")
+    hnt
