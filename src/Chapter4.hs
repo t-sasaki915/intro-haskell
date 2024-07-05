@@ -246,7 +246,7 @@ chapter4 =
                                 ]
                         )
                         (answer $ do
-                            "前者の"; qot "not"; "が否定するのは"; qot "True >= False"; qot "であるから、"; qot "True < False"; "が得られる。"
+                            "前者の"; qot "not"; "が否定するのは"; qot "True >= False"; "であるから、"; qot "True < False"; "が得られる。"
                             "後者の"; qot "not"; "が否定するのは"; qot "True"; "のみであるから、"; qot "False >= False"; "が得られる。"
                             "前者と後者で"; qot "not"; "が及ぶ範囲が違い、式が異なるため結果も異なる。"
                         )
