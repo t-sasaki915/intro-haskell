@@ -24,13 +24,13 @@ source-repository head
 
 library
   exposed-modules:
-      Chapter1
-      Chapter2
-      Chapter3
-      Chapter4
-      Chapter5
-      Chapter6
-      Chapters
+      Chapter
+      Chapters.Chapter1
+      Chapters.Chapter2
+      Chapters.Chapter3
+      Chapters.Chapter4
+      Chapters.Chapter5
+      Chapters.Chapter6
       Component
       HtmlGenerator
   other-modules:

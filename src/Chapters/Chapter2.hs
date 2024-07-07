@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Chapter2 (chapter2) where
+module Chapters.Chapter2 (chapter2) where
 
-import Chapters
+import Chapter
 
 chapter2 :: Chapter
 chapter2 =

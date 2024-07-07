@@ -1,7 +1,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Chapters
+module Chapter
     ( ConstructedChapter(..)
     , Chapter(..)
     , beginChapter

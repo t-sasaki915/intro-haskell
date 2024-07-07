@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Chapter1 (chapter1) where
+module Chapters.Chapter1 (chapter1) where
 
-import Chapters
+import Chapter
 import Component
 
 chapter1 :: Chapter

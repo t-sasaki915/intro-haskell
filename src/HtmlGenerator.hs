@@ -2,13 +2,13 @@
 
 module HtmlGenerator (generateHtmls) where
 
-import Chapter1 (chapter1)
-import Chapter2 (chapter2)
-import Chapter3 (chapter3)
-import Chapter4 (chapter4)
-import Chapter5 (chapter5)
-import Chapter6 (chapter6)
-import Chapters (ConstructedChapter(..), Chapter(..), constructChapters)
+import Chapter (ConstructedChapter(..), Chapter(..), constructChapters)
+import Chapters.Chapter1 (chapter1)
+import Chapters.Chapter2 (chapter2)
+import Chapters.Chapter3 (chapter3)
+import Chapters.Chapter4 (chapter4)
+import Chapters.Chapter5 (chapter5)
+import Chapters.Chapter6 (chapter6)
 
 import Data.ByteString (writeFile, toStrict)
 import Data.Text (empty, pack)
