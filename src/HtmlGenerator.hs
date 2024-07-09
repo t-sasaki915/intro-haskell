@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module HtmlGenerator (generateHtmls) where
 
 import Chapter (ConstructedChapter(..), Chapter(..), constructChapters)

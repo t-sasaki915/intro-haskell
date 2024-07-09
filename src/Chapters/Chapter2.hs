@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module Chapters.Chapter2 (chapter2) where
 
 import Chapter

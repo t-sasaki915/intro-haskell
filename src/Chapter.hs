@@ -1,6 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Chapter
     ( ConstructedChapter(..)
     , Chapter(..)
