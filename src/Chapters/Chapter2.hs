@@ -6,7 +6,11 @@ import Component
 chapter2 :: Chapter
 chapter2 =
     beginChapter "Haskell学習にあたって"
-        [ beginSection "Haskellの概要"
+        [ beginChapterDescription $ do
+            "Haskell学習に先立って、まずはHaskellに対する誤解を解き、そしてHaskellを学ぶ意義を確認しておこう。"
+            "ただし、この章はHaskellをただ褒め称える内容であるから、Haskell学習の意欲が十分ある読者は読み飛ばしてもかまわない。"
+            
+        , beginSection "Haskellの概要"
             [ beginContent $ do
                 "Haskellは強い静的型付けを行う純粋関数型プログラミング言語である。"
                 "登場時期は1990年頃と、歴史のある言語である。"
