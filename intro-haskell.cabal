@@ -27,6 +27,7 @@ library
       Chapters.Chapter4
       Chapters.Chapter5
       Chapters.Chapter6
+      Chapters.Chapter7
       Component
       HtmlGenerator
   other-modules:

@@ -7,6 +7,7 @@ import Chapters.Chapter3 (chapter3)
 import Chapters.Chapter4 (chapter4)
 import Chapters.Chapter5 (chapter5)
 import Chapters.Chapter6 (chapter6)
+import Chapters.Chapter7 (chapter7)
 
 import Data.ByteString (writeFile, toStrict)
 import Data.Text (empty, pack)
@@ -22,6 +23,7 @@ chaptersToGenerate =
     , chapter4
     , chapter5
     , chapter6
+    , chapter7
     ]
 
 indexJs :: Html ()

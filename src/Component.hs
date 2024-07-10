@@ -2,6 +2,7 @@
 
 module Component where
 
+import Data.List (intercalate)
 import Data.Text (pack, empty)
 import Lucid
 
@@ -13,6 +14,9 @@ latex equ = toHtml $ "\\(" ++ equ ++ "\\)"
 
 latexBlock :: String -> Html ()
 latexBlock equ = toHtml $ "$$" ++ equ ++ "$$"
+
+latexAlign :: [String] -> Html ()
+latexAlign equs = latexBlock ("\\begin{aligned}" ++ intercalate "\\\\" equs ++ "\\end{aligned}")
 
 dotList :: Html () -> Html ()
 dotList = ul_ []
