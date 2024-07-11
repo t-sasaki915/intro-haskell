@@ -220,5 +220,94 @@ chapter6 =
                                     [ "f a b = a - b"
                                     ]
                         )
-            ]        
+            ]
+
+        , beginSection "関数の使用"
+            [ beginContent $ do
+                "Haskellの関数は、ラムダ式にラベルをつけたものであるから、関数の使用方法はラムダ式と同じである。"
+                "つまり、"
+                haskellCode
+                    [ "ラムダ式 値"
+                    ]
+                "のラムダ式の部分を関数名に置き換え、"
+                haskellCode
+                    [ "関数名 値"
+                    ]
+                "である。"
+                "例えば、関数"; qot "plusOne a = a + 1"; "は以下のように使用できる。"
+                haskellCode
+                    [ "plusOne 1"
+                    , "plusOne 3"
+                    , "plusOne (1 + 3)"
+                    ]
+                "実行結果"
+                haskellCode
+                    [ "2"
+                    , "4"
+                    , "5"
+                    ]
+                "そして、関数"; qot "sum a b = a + b"; "のような、内部的にカリー化されている関数は、値を複数取る関数であるかのように使用できる。"
+                "つまり、"
+                haskellCode
+                    [ "sum 1 2"
+                    , "sum 3 4"
+                    , "sum (1 + 2) (2 + 2)"
+                    ]
+                "を実行すると"
+                haskellCode
+                    [ "3"
+                    , "7"
+                    , "7"
+                    ]
+                "になる。"
+                "もちろん、カリー化されていることを尊重し、"; qot "(sum x) y"; "と書いてもよい。"
+
+            , beginSubsection "問題" $
+                numberList $ do
+                    problem
+                        (do
+                            "以下の関数適用の式を、シンプルに書き直せ。"
+                            haskellCode
+                                [ "((((f 1) 2) 3) 4)"
+                                ]
+                        )
+                        (answer $
+                            haskellCode
+                                [ "f 1 2 3 4"
+                                ]
+                        )
+                    
+                    problem
+                        (do
+                            "以下の関数適用の式を、カリー化されていることがわかりやすい方法で書き直せ。"
+                            haskellCode
+                                [ "g 1 2 3"
+                                ]
+                        )
+                        (answer $
+                            haskellCode
+                                [ "(((g 1) 2) 3)"
+                                ]
+                        )
+
+                    problem
+                        (do
+                            "以下の関数を用いて、与えられた値に2を加える関数"; qot "plusTwo"; "を定義せよ。"
+                            haskellCode
+                                [ "sum a b = a + b"
+                                ]
+                        )
+                        (do
+                            hint $ do
+                                "関数の部分適用を用いて、"; qot "a"; "が"; qot "2"; "に固定された"; qot "sum"; "関数を生成できる。"
+                                haskellCode
+                                    [ "sum 2"
+                                    ]
+                            
+                            answer $
+                                haskellCode
+                                    [ "plusTwo = sum 2"
+                                    ]
+                        )
+            ]
         ]
