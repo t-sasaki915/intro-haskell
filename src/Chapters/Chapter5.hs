@@ -217,4 +217,83 @@ chapter5 =
                 latex "sum'"; " 関数に "; latex "1"; " だけを適用することにより、「適用された値に "; latex "1"; " を加える関数」を生成することができる。"
                 "このような、カリー化された関数に不十分な値を適用し、関数を得る行為を部分適用といい、Haskell含め関数型プログラミング言語では極めて重要な考え方である。"
             ]
+
+        , beginSection "Haskellのラムダ式"
+            [ beginContent $ do
+                "最後に、Haskellでラムダ式を記述する方法を説明する。"
+                "Haskellのラムダ式は、以下の書式で記述される。"
+                haskellCode
+                    [ "\\変数名 -> 変数についての式"
+                    ]
+                "例えば、"
+                latexBlock "\\lambda x. x + 2"
+                "は、Haskellで"
+                haskellCode
+                    [ "\\x -> x + 2"
+                    ]
+                "である。"
+                qot "λ"; "の代わりに"; qot "\\"; "を用い、"; qot "."; "の代わりに"; qot "->"; "を使うのである。"
+                "そして、Haskellでは特別に、連続したラムダ式を短縮して記述できる。"
+                "つまり、"
+                latexBlock "\\lambda x. \\lambda y. \\lambda z. x + y + z"
+                "は、Haskellで"
+                haskellCode
+                    [ "\\x -> \\y -> \\z -> x + y + z"
+                    ]
+                "であるが、短縮して"
+                haskellCode
+                    [ "\\x y z -> x + y + z"
+                    ]
+                "とすることができる。"
+                "これは、複数の値を取るラムダ式が使えると考えるより、自動でラムダ式の組み合わせに展開してくれる機能であると考えるほうが妥当である。"
+                "加えて、Haskellのラムダ式への値の適用は、数学と同じように行える。"
+                "つまり、"
+                latexAlign
+                    [ "(\\lambda x. x + 1) 3"
+                    , "(\\lambda x. x + 1) (a + b)"
+                    , "f \\: 1 \\quad (f はラムダ式とする)"
+                    ]
+                "はそれぞれ"
+                haskellCode
+                    [ "(\\x -> x + 1) 3"
+                    , "(\\x -> x + 1) (a + b)"
+                    , "f 1 -- f はラムダ式とする"
+                    ]
+                "と等しい。"
+            
+            , beginSubsection "問題" $
+                numberList $ do
+                    problem
+                        (do
+                            "以下のラムダ式をHaskellで記述せよ。"
+                            latexBlock "\\lambda a. a + 2"
+                        )
+                        (answer $
+                            haskellCode
+                                [ "\\a -> a + 2"
+                                ]
+                        )
+                    
+                    problem
+                        (do
+                            "以下のラムダ式を省略せずにHaskellで記述せよ。"
+                            latexBlock "\\lambda a. \\lambda b. \\lambda c. \\lambda d. a + b + c + d"
+                        )
+                        (answer $
+                            haskellCode
+                                [ "\\a -> \\b -> \\c -> \\d -> a + b + c + d"
+                                ]
+                        )
+                    
+                    problem
+                        (do
+                            "以下のラムダ式を最もシンプルにHaskellで記述せよ。"
+                            latexBlock "\\lambda a. \\lambda b. \\lambda c. \\lambda d. \\lambda e. a \\cdot b \\cdot c \\cdot d \\cdot e"
+                        )
+                        (answer $
+                            haskellCode
+                                [ "\\a b c d e -> a * b * c * d * e"
+                                ]
+                        )
+            ]
         ]
