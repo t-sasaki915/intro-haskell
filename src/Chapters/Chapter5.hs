@@ -107,4 +107,78 @@ chapter5 =
                                 ]
                         )
             ]
+        
+        , beginSection "カリー化"
+            [ beginContent $ do
+                "2つの値の合計を求める関数 "; latex "sum"; " がある。"
+                latexBlock "sum(a, b) = a + b"
+                "この関数はラムダ式でどう表現できるだろうか。"
+                "単純に考えると、このようになる。"
+                latexBlock "\\lambda a, b. a + b"
+                "しかし、ラムダ式がとれる値は常に1つであるから、この式は誤りである。"
+                "正しいラムダ式は、以下である。"
+                latexBlock "\\lambda a. \\lambda b. a + b"
+                "複数の値をとる関数は、複数のラムダ式の組み合わせで表現できる。"
+                "値 "; latex "a"; " を受け取り、「値 "; latex "b"; " を受け取り、"; latex "a + b"; " を行う関数」を返しているのである。"
+                "このラムダ式を "; latex "sum"; " とおいて、値を適用してみる。"
+                latexAlign
+                    [ "sum &= \\lambda a. \\lambda b. a + b"
+                    , "sum \\: 3 &= (\\lambda a. \\lambda b. a + b) 3"
+                    , "&= \\lambda b. 3 + b"
+                    ]
+                "1度の値適用で、"; latex "a"; " が具体化された "; latex "b"; " についてのラムダ式"; latex "\\lambda b. 3 + b"; "が得られた。"
+                "さらに、得られたラムダ式に値を適用してみる。"
+                latexAlign
+                    [ "(sum \\: 3) 4 &= (\\lambda b. 3 + b) 4"
+                    , "&= 3 + 4"
+                    , "&= 7"
+                    ]
+                "このように、2つの値を取り、合計を求める関数がラムダ式で実現された。"
+                "上記で行ったような、複数の値を取る関数を、複数の「1つの値を取る関数」の組み合わせで表現することを、カリー化という。"
+                "次に、以下の関数をカリー化してみよう。"
+                latexBlock "product5(a, b, c, d, e) = a \\cdot b \\cdot c \\cdot d \\cdot e"
+                "5つの値を取る関数は、5つのラムダ式を用いて表現できるはずである。"
+                latexBlock "product5 = \\lambda a. \\lambda b. \\lambda c. \\lambda d. \\lambda e. a \\cdot b \\cdot c \\cdot d \\cdot e"
+                "あるいは、"; latex "\\lambda a."; " を通常の関数に戻し、"
+                latexBlock "product5(a) = \\lambda b. \\lambda c. \\lambda d. \\lambda e. a \\cdot b \\cdot c \\cdot d \\cdot e"
+                "としても、この2つは等しい関数である。 "
+
+            , beginSubsection "問題" $
+                numberList $ do
+                    problem
+                        (do
+                            "以下の関数 "; latex "f"; " をラムダ式で表現せよ。"
+                            latexBlock "f(x, y) = x^y"
+                        )
+                        (answer $
+                            latexBlock "\\lambda x. \\lambda y. x^y"
+                        )
+
+                    problem
+                        (do
+                            "以下の関数 "; latex "g"; " をラムダ式で表現せよ。"
+                            latexBlock "g(a, b, c) = f(a, b + c)"
+                        )
+                        (answer $
+                            latexBlock "\\lambda a. \\lambda b. \\lambda c. f(a, b + c)"
+                        )
+
+                    problem
+                        (do
+                            "カリー化を用いて、以下の関数 "; latex "f"; " を元に値を1つとる関数 "; latex "f'"; " を定義せよ。"
+                            latexBlock "f(a, b) = a \\cdot b"
+                        )
+                        (answer $
+                            latexBlock "f'(a) = \\lambda b. a \\cdot b"
+                        )
+
+                    problem
+                        (do
+                            "以下のカリー化された関数 "; latex "g'"; " を元に、値を2つとる関数 "; latex "g"; " を定義せよ。"
+                            latexBlock "g'(x) = \\lambda y. \\lambda z. x + y + z"
+                        )
+                        (answer $
+                            latexBlock "g(x, y) = \\lambda z. x + y + z"
+                        )
+            ]
         ]
