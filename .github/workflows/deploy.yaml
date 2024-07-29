@@ -22,24 +22,28 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Cache
-      uses: actions/cache@v3
+      id: cache-stack
+      uses: actions/cache@v2
       with:
-        path: ~/.cabal/store
-        key: ${{ matrix.ghc }}-cabal-${{ hashFiles('**/fallible.cabal') }}
+        path: ~/.stack
+        key: "\
+          ${{ runner.os }}-stack\
+          -${{ hashFiles('**/stack.yaml.lock') }}\
+          -${{ hashFiles('**/package.yaml') }}\
+        "
         restore-keys: |
-          ${{ matrix.ghc }}-cabal-
+          ${{ runner.os }}-stack-
 
     - uses: actions/setup-haskell@v1
       with:
         ghc-version: '8.10.3'
-        cabal-version: '3.2'
+        enable-stack: true
+        stack-version: 'latest'
 
     - name: Install dependencies
-      run: |
-        cabal update
-        cabal build --only-dependencies
+      run: stack --system-ghc build --only-dependencies
     - name: Build Generator
-      run: cabal install --installdir="."
+      run: stack --system-ghc install --local-bin-path .
     - name: Generate HTMLs
       run: ./intro-haskell-exe ./assets
     - uses: actions/upload-pages-artifact@v1
