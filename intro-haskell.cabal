@@ -20,6 +20,20 @@ source-repository head
 
 library
   exposed-modules:
+  other-modules:
+      Paths_intro_haskell
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+  default-extensions: OverloadedStrings, LambdaCase
+
+executable intro-haskell-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_intro_haskell
       Chapter
       Chapters.Chapter1
       Chapters.Chapter2
@@ -30,25 +44,6 @@ library
       Chapters.Chapter7
       Component
       HtmlGenerator
-  other-modules:
-      Paths_intro_haskell
-  hs-source-dirs:
-      src
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
-  build-depends:
-      base >=4.7 && <5
-    , bytestring ==0.11.5.3
-    , directory ==1.3.8.4
-    , filepath ==1.4.300.1
-    , lucid ==2.11.20230408
-    , text ==2.0.2
-  default-language: Haskell2010
-  default-extensions: OverloadedStrings, LambdaCase
-
-executable intro-haskell-exe
-  main-is: Main.hs
-  other-modules:
-      Paths_intro_haskell
   hs-source-dirs:
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
