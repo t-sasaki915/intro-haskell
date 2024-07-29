@@ -20,22 +20,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.cabal/store
+        key: ${{ matrix.ghc }}-cabal-${{ hashFiles('**/fallible.cabal') }}
+        restore-keys: |
+          ${{ matrix.ghc }}-cabal-
+
     - uses: actions/setup-haskell@v1
       with:
         ghc-version: '8.10.3'
         cabal-version: '3.2'
-
-    - name: Cache
-      uses: actions/cache@v3
-      env:
-        cache-name: cache-cabal
-      with:
-        path: ~/.cabal
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}-${{ hashFiles('**/cabal.project') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
 
     - name: Install dependencies
       run: |
