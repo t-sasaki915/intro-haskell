@@ -1,7 +1,7 @@
 module Chapters.Chapter1 (chapter1) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter1 :: Chapter
 chapter1 =
@@ -10,7 +10,7 @@ chapter1 =
             "このテキストは、"; hlink "https://github.com/t-sasaki915" "筆者"; "のHaskellの理解度を確かめることを主な目的として作成された。"
             "また、筆者は専門家ではないので、このテキスト内に間違いを見つけた人や、より良い説明を思いついた人は、ぜひ"; hlink "https://github.com/t-sasaki915/intro-haskell" "GitHub"; "で提案してほしい。"
             "このテキストが誰かのHaskell学習に役立つようなことがあれば、大変うれしく思う。"
-        
+
         , beginSection "テキストを読むにあたって"
             [ beginContent $ do
                 "このテキストを読むにあたり、以下のものは必須となる。"

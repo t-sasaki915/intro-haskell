@@ -1,11 +1,11 @@
 module Main (main) where
 
-import HtmlGenerator (generateHtmls)
+import           HtmlGenerator      (generateHtmls)
 
-import Control.Monad (filterM)
-import System.Directory
-import System.Environment (getArgs)
-import System.FilePath ((</>), takeFileName)
+import           Control.Monad      (filterM)
+import           System.Directory
+import           System.Environment (getArgs)
+import           System.FilePath    (takeFileName, (</>))
 
 copyAsset :: FilePath -> IO ()
 copyAsset path =

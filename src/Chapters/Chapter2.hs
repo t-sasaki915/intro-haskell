@@ -1,7 +1,7 @@
 module Chapters.Chapter2 (chapter2) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter2 :: Chapter
 chapter2 =
@@ -9,7 +9,7 @@ chapter2 =
         [ beginChapterDescription $ do
             "Haskell学習に先立って、まずはHaskellに対する誤解を解き、そしてHaskellを学ぶ意義を確認しておこう。"
             "ただし、この章はHaskellをただ褒め称える内容であるから、Haskell学習の意欲が十分ある読者は読み飛ばしてもかまわない。"
-            
+
         , beginSection "Haskellの概要"
             [ beginContent $ do
                 "Haskellは強い静的型付けを行う純粋関数型プログラミング言語である。"
@@ -17,7 +17,7 @@ chapter2 =
                 "PythonやJavaなどと同じように汎用的な言語であるが、学習コストが極めて高いことで知られている。"
                 "言語機能が豊富かつ、プログラムの信頼性・保守性が高いため、金融業界で採用された事例もある。"
             ]
-        
+
         , beginSection "Haskellを学ぶ理由"
             [ beginContent $ do
                 "Haskellは万人受けするような言語ではなく、学習コストも高いため、残念ながら避けられがちである。"

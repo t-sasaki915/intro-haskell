@@ -1,7 +1,7 @@
 module Chapters.Chapter5 (chapter5) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter5 :: Chapter
 chapter5 =
@@ -40,7 +40,7 @@ chapter5 =
                 "このようになる。"
                 "難しく考える必要はなく、関数名を "; latex "\\lambda"; " に置き換え、"; qot "( )"; "を消して"; qot "="; "を"; qot "."; "にするだけだ。"
                 "関数の内容に変更を加える必要はない。"
-            
+
             , beginSubsection "値の適用" $ do
                 "ラムダ式への値の適用は、以下のように行われる。"
                 latexBlock "ラムダ式\\quad 値"
@@ -63,7 +63,7 @@ chapter5 =
                         (answer $
                             latexBlock "\\lambda x. ax^2 + bx + c"
                         )
-                    
+
                     problem
                         (do
                             "以下の関数 "; latex "f"; " をラムダ記法で記せ。"
@@ -72,7 +72,7 @@ chapter5 =
                         (answer $
                             latexBlock "\\lambda t. \\lim_{n \\rightarrow \\infty} \\frac{t}{n}"
                         )
-                    
+
                     problem
                         (do
                             "以下の関数 "; latex "f"; " をラムダ記法で記せ。"
@@ -81,7 +81,7 @@ chapter5 =
                         (answer $
                             latexBlock "\\lambda x. g(x) + h(x)"
                         )
-                    
+
                     problem
                         (do
                             "以下のラムダ式に、値 "; latex "4"; " を代入せよ。"
@@ -93,7 +93,7 @@ chapter5 =
                                 , "&= 0"
                                 ]
                         )
-                    
+
                     problem
                         (do
                             "以下のラムダ式に、値 "; latex "a + 1"; " を代入せよ。"
@@ -107,7 +107,7 @@ chapter5 =
                                 ]
                         )
             ]
-        
+
         , beginSection "カリー化"
             [ beginContent $ do
                 "2つの値の合計を求める関数 "; latex "sum"; " がある。"
@@ -181,7 +181,7 @@ chapter5 =
                             latexBlock "g(x, y) = \\lambda z. x + y + z"
                         )
             ]
-        
+
         , beginSection "部分適用"
             [ beginContent $ do
                 "前提を何も示さずにカリー化を説明したが、カリー化は何の役に立つのだろうか。"
@@ -260,7 +260,7 @@ chapter5 =
                     , "f 1 -- f はラムダ式とする"
                     ]
                 "と等しい。"
-            
+
             , beginSubsection "問題" $
                 numberList $ do
                     problem
@@ -273,7 +273,7 @@ chapter5 =
                                 [ "\\a -> a + 2"
                                 ]
                         )
-                    
+
                     problem
                         (do
                             "以下のラムダ式を省略せずにHaskellで記述せよ。"
@@ -284,7 +284,7 @@ chapter5 =
                                 [ "\\a -> \\b -> \\c -> \\d -> a + b + c + d"
                                 ]
                         )
-                    
+
                     problem
                         (do
                             "以下のラムダ式を最もシンプルにHaskellで記述せよ。"

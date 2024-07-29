@@ -1,7 +1,7 @@
 module Chapters.Chapter4 (chapter4) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter4 :: Chapter
 chapter4 =
@@ -58,7 +58,7 @@ chapter4 =
                     , "4"
                     , "-4"
                     ]
-            
+
             , beginSubsection "問題" $ do
                 numberList $ do
                     problem
@@ -71,7 +71,7 @@ chapter4 =
                                 ]
                         )
             ]
-        
+
         , beginSection "真偽値"
             [ beginContent $ do
                 "Haskellには、"; qot "True"; "・"; qot "False"; "という値がある。"
@@ -79,7 +79,7 @@ chapter4 =
                 "これは次に紹介する等式・不等式の結果であったり、処理が成功したか・失敗したかを表すことができる。"
                 "また、オン・オフの2択をとる設定は真偽値で実現できる。"
             ]
-        
+
         , beginSection "等式"
             [ beginContent $ do
                 "Haskellには等式が存在する。"
@@ -159,7 +159,7 @@ chapter4 =
                 "コンピュータではオンを"; qot "1"; "、オフを"; qot "0"; "で表現する。"
                 "オン・オフは真偽値で表現できるから、"; qot "True"; "は"; qot "1"; "、"; qot "False"; "は"; qot "0"; "と表現できる。"
                 "したがって、以下が成り立つ (= 実行結果が"; qot "True"; "になる)。"
-                haskellCode  
+                haskellCode
                     [ "True > False"
                     , "True >= False"
                     , "False < True"
@@ -249,7 +249,7 @@ chapter4 =
                             "前者と後者で"; qot "not"; "が及ぶ範囲が違い、式が異なるため結果も異なる。"
                         )
             ]
-        
+
         , beginSection "\\(a < b < c\\) のような式"
             [beginContent $ do
                 "Haskellでは、"; latex "a < b < c"; " や "; latex "a = b = c"; " のような式を以下のように書くことはできない。"

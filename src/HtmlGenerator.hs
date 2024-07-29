@@ -1,19 +1,20 @@
 module HtmlGenerator (generateHtmls) where
 
-import Chapter (ConstructedChapter(..), Chapter(..), constructChapters)
-import Chapters.Chapter1 (chapter1)
-import Chapters.Chapter2 (chapter2)
-import Chapters.Chapter3 (chapter3)
-import Chapters.Chapter4 (chapter4)
-import Chapters.Chapter5 (chapter5)
-import Chapters.Chapter6 (chapter6)
-import Chapters.Chapter7 (chapter7)
+import           Chapter           (Chapter (..), ConstructedChapter (..),
+                                    constructChapters)
+import           Chapters.Chapter1 (chapter1)
+import           Chapters.Chapter2 (chapter2)
+import           Chapters.Chapter3 (chapter3)
+import           Chapters.Chapter4 (chapter4)
+import           Chapters.Chapter5 (chapter5)
+import           Chapters.Chapter6 (chapter6)
+import           Chapters.Chapter7 (chapter7)
 
-import Data.ByteString (writeFile, toStrict)
-import Data.Text (empty, pack)
-import Lucid
-import Prelude hiding (writeFile)
-import System.FilePath ((</>), takeFileName)
+import           Data.ByteString   (toStrict, writeFile)
+import           Data.Text         (empty, pack)
+import           Lucid
+import           Prelude           hiding (writeFile)
+import           System.FilePath   (takeFileName, (</>))
 
 chaptersToGenerate :: [Chapter]
 chaptersToGenerate =

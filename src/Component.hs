@@ -2,9 +2,9 @@
 
 module Component where
 
-import Data.List (intercalate)
-import Data.Text (pack, empty)
-import Lucid
+import           Data.List (intercalate)
+import           Data.Text (empty, pack)
+import           Lucid
 
 hlink :: String -> String -> Html ()
 hlink link = a_ [href_ (pack link)] . toHtml

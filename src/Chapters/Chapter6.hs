@@ -1,7 +1,7 @@
 module Chapters.Chapter6 (chapter6) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter6 :: Chapter
 chapter6 =
@@ -9,7 +9,7 @@ chapter6 =
         [ beginChapterDescription $ do
             "この章では、Haskellで変数・関数を定義し、使用する方法を説明する。"
             "また、初学者のために変数・関数の命名方法も説明する。"
-        
+
         , beginSection "変数について"
             [ beginContent $ do
                 "まず、数学の変数を復習しよう。"
@@ -44,7 +44,7 @@ chapter6 =
                     ]
                 "C言語やPythonなどを経験している読者は、このプログラムは変数の再代入に見えるかもしれない。"
                 "しかし、Haskellでは、一度定義した変数の値は変更できない。"
-            
+
             , beginSubsection "問題" $
                 numberList $ do
                     problem
@@ -96,7 +96,7 @@ chapter6 =
                 "例えば、「ユーザーの年齢を値として持つ変数」を命名するとき、そのまま英語にしてしまうと"; qot "aVariableWhoseContentIsTheAgeOfTheUser"; "であり、長すぎである。"
                 "この時、この変数の最も重要な情報は「ユーザー」の「年齢」、すなわち"; qot "user"; "と"; qot "age"; "の2単語である。"
                 "よって、この2単語から構成される変数名"; qot "userAge"; "が最適であろう。"
-            
+
             , beginSubsection "問題" $
                 numberList $ do
                     problem
@@ -106,7 +106,7 @@ chapter6 =
                         (answer $
                             qot "programVersion"
                         )
-                    
+
                     problem
                         (do
                             qot "display text colour"; "をcamelCaseで書き直せ。"
@@ -121,7 +121,7 @@ chapter6 =
                             qot "playerName"
                         )
             ]
-        
+
         , beginSection "変数の使用"
             [ beginContent $ do
                 "Haskellで定義した変数を使用する方法は、単純に式の項として変数名を書くだけである。"
@@ -129,7 +129,7 @@ chapter6 =
                 "このとき、"; qot "x"; "の値と"; qot "y"; "の値の加算は"
                 haskellCode
                     [ "x + y"
-                    ] 
+                    ]
                 "である。"
                 "また、変数と具体的な値を用いた式も可能である。"
                 haskellCode
@@ -137,7 +137,7 @@ chapter6 =
                     , "y + 1"
                     , "x + y + 1 + 2"
                     ]
-            
+
             , beginSubsection "問題" $
                 numberList $ do
                     problem
@@ -276,7 +276,7 @@ chapter6 =
                                 [ "f 1 2 3 4"
                                 ]
                         )
-                    
+
                     problem
                         (do
                             "以下の関数適用の式を、カリー化されていることがわかりやすい方法で書き直せ。"
@@ -303,7 +303,7 @@ chapter6 =
                                 haskellCode
                                     [ "sum 2"
                                     ]
-                            
+
                             answer $
                                 haskellCode
                                     [ "plusTwo = sum 2"

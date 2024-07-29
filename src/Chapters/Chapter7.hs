@@ -1,7 +1,7 @@
 module Chapters.Chapter7 (chapter7) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter7 :: Chapter
 chapter7 =
@@ -9,7 +9,7 @@ chapter7 =
         [ beginChapterDescription $ do
             "この章では、Haskellの型システムの基本を紹介する。"
             "特に、既存の型について説明を行う。"
-        
+
         , beginSection "型とは"
             [ beginContent $ do
                 "多くのプログラミング言語には、型というものが存在する。"
@@ -20,7 +20,7 @@ chapter7 =
                 "そして、値が"; qot "Bool"; "という型を持っていたなら、その値は真偽値である。"
                 "このように、型が値の種類を保証するのである。"
             ]
-        
+
         , beginSection "基本型"
             [ beginContent $ do
                 "Haskellで定義されている、基本的な型を一部紹介する。"
@@ -31,7 +31,7 @@ chapter7 =
                     tableRow [qot "Bool", "真偽値", qot "True" >> " " >> qot "False"]
                     tableRow [qot "Char", "文字", qot "'a'" >> " " >> qot "'b'" >> " " >> qot "'A'"]
                     tableRow [qot "String", "文字列", qot "\"a\"" >> " " >> qot "\"Hello\"" >> " " >> qot "\"あああ\""]
-            
+
             , beginSubsection "Integer・Floatについて" $ do
                 "Haskellのプログラム内に、"; qot "Integer"; "や"; qot "Float"; "といった型を見るかもしれない。"
                 qot "Integer"; "は"; qot "Int"; "とほとんど同じであり、"; qot "Float"; "は"; qot "Double"; "とほとんど同じである。"
@@ -41,7 +41,7 @@ chapter7 =
                 "(2倍の精度だから"; qot "Double"; "という名前なのである)。"
                 "なお、実数の精度とは、無限小数を有限なメモリの中でどこまで表現するかの程度である。"
                 "例えば、"; qot "1.111..."; "という無限小数を、"; qot "1.111"; "として扱う型より、"; qot "1.111111"; "として扱える型のほうが高精度である。"
-            
+
             , beginSubsection "問題" $
                 numberList $ do
                     problem
@@ -59,7 +59,7 @@ chapter7 =
                         (answer $ do
                             qot "True"; "、"; qot "False"
                         )
-                    
+
                     problem
                         (do
                             "値"; qot "13474813"; "の型を推測せよ。"
@@ -67,7 +67,7 @@ chapter7 =
                         (answer $ do
                             qot "Int"; " ("; qot "Integer"; "も可)"
                         )
-                    
+
                     problem
                         (do
                             "値"; qot "\"GOOD MORNING\""; "の型を推測せよ。"

@@ -1,21 +1,21 @@
 module Chapters.Chapter3 (chapter3) where
 
-import Chapter
-import Component
+import           Chapter
+import           Component
 
 chapter3 :: Chapter
 chapter3 =
     beginChapter "環境構築"
-        [ beginChapterDescription $
+        [ beginChapterDescription
             "この章では、Windows 10以上を搭載したパソコンと、Visual Studio Codeを用いた環境構築方法を説明する。"
-        
+
         , beginSection "Visual Studio Codeのインストール"
             [ beginContent $ do
                 hlink "https://code.visualstudio.com/" "Microsoftのサイト"; "からインストーラを入手し、インストールしよう。"
                 "特に注意すべき点はないが、"; qot "エクスプローラーのファイルコンテキストメニューに[Codeで開く]アクションを追加する"; "にチェックを入れておくと便利である。"
                 "インストール後にVisual Studio Codeが起動した場合は、一度閉じる必要がある。"
             ]
-        
+
         , beginSection "GHCupのインストール"
             [ beginContent $ do
                 "次に、Haskellコンパイラをはじめ様々なツールをインストールしてくれる、GHCupをインストールする。"
@@ -39,7 +39,7 @@ chapter3 =
                 "何かキーを押して終了しよう。"
                 lazyImg "./assets/ghcup_finish.png" "参考画像2を表示"
             ]
-        
+
         , beginSection "拡張機能のインストール"
             [ beginContent $ do
                 "次に、快適な開発環境のために、Visual Studio Codeに拡張機能をインストールする。"
@@ -50,7 +50,7 @@ chapter3 =
                 "インストールが完了すると、"; qot "Install"; "ボタンは消えるはずである。"
                 lazyImg "./assets/instal_haskell_extension.png" "参考画像4を表示"
             ]
-        
+
         , beginSection "Visual Studio Codeの設定"
             [ beginContent $ do
                 "次に、Visual Studio Codeの設定を行う。"
@@ -61,7 +61,7 @@ chapter3 =
                 lazyImg "./assets/select_ghcup.png" "参考画像6を表示"
                 "ここで、Visual Studio Codeのメニューから"; qot "File"; "→"; qot "Auto Save"; "を選択して、オートセーブを有効にしておくと便利である。"
             ]
-        
+
         , beginSection "サンプルプログラムの実行"
             [ beginContent $ do
                 "最後に、サンプルプログラムを実行してみよう。"

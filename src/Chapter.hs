@@ -9,8 +9,8 @@ module Chapter
     , constructChapters
     ) where
 
-import Data.Text (empty)
-import Lucid
+import           Data.Text (empty)
+import           Lucid
 
 data ConstructedChapter = ConstructedChapter Int String (Html ())
 
